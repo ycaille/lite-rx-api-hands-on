@@ -85,7 +85,7 @@ public class Part01CreateFlux {
 
 	// TODO Create a Flux that emits an IllegalStateException
 	Flux<String> errorFlux() {
-		return null;
+		return Flux.error(new IllegalStateException()) ;
 	}
 
 //========================================================================================
