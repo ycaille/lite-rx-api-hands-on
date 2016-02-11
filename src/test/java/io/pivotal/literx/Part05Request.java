@@ -93,7 +93,7 @@ public class Part05Request {
 
 	// TODO Return a Flux with skyler, jesse, walter and saul that prints automatically logs for all Reactive Streams signals
 	Flux<User> fluxWithLog() {
-		return null;
+		return repository.findAll().log();
 	}
 
 
