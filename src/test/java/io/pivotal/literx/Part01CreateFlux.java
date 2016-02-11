@@ -116,7 +116,7 @@ public class Part01CreateFlux {
 
 	// TODO Create a Flux that emits an increasing value each 100ms
 	Flux<Long> counter() {
-		return null;
+		return Flux.interval(1L);
 	}
 
 }
