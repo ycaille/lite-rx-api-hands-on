@@ -74,7 +74,7 @@ public class Part04Merge {
 
 	// TODO Create a Flux containing the values of the 2 Mono
 	Flux<User> createFluxFromMultipleMono(Mono<User> mono1, Mono<User> mono2) {
-		return null;
+		return Flux.from(mono1).concatWith(Flux.from(mono2)) ;
 	}
 
 }
