@@ -61,7 +61,7 @@ public class Part05Request {
 
 	// TODO Request one value
 	void requestOne(TestSubscriber<User> testSubscriber) {
-
+		testSubscriber.request(1);
 	}
 
 //========================================================================================
