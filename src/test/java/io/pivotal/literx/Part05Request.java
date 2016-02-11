@@ -29,7 +29,7 @@ public class Part05Request {
 
 	// TODO Create a TestSubscriber that requests initially no value
 	TestSubscriber<User> createSubscriber() {
-		return null;
+		return new TestSubscriber<>(0) ;
 	}
 
 //========================================================================================
