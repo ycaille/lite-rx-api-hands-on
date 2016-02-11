@@ -32,14 +32,10 @@ public class Part03Transform {
 
 	// TODO Capitalize the user username, firstname and lastname
 	Mono<User> capitalizeOne(Mono<User> mono) {
-		User user = mono.get() ;
-		User user2 = new User( user.getUsername().toUpperCase()
-				, user.getFirstname().toUpperCase()
-				, user.getLastname().toUpperCase()
-				);
-		return Mono.just(user2) ;
+		return mono.map( u -> new User( u.getUsername().toUpperCase(),
+						 u.getFirstname().toUpperCase(),
+						 u.getLastname().toUpperCase() ) ) ;
 	}
-	// TODO Find a more elegant approach !
 
 //========================================================================================
 
@@ -60,7 +56,9 @@ public class Part03Transform {
 
 	// TODO Capitalize the users username, firstName and lastName
 	Flux<User> capitalizeMany(Flux<User> flux) {
-		return null;
+		return flux.map( u -> new User( u.getUsername().toUpperCase(),
+										u.getFirstname().toUpperCase(),
+										u.getLastname().toUpperCase() ) ) ;
 	}
 
 
