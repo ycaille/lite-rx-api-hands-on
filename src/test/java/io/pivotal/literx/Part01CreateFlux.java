@@ -3,6 +3,7 @@ package io.pivotal.literx;
 import org.junit.Test;
 import reactor.core.publisher.Flux;
 import reactor.core.test.TestSubscriber;
+import reactor.fn.tuple.Tuple;
 
 /**
  * Learn how to create Flux instances.
@@ -27,7 +28,7 @@ public class Part01CreateFlux {
 
 	// TODO Return an empty Flux
 	Flux<String> emptyFlux() {
-		return null;
+		return Flux.empty() ;
 	}
 
 //========================================================================================
@@ -44,7 +45,7 @@ public class Part01CreateFlux {
 
 	// TODO Return a Flux that contains 2 values "foo" and "bar" without using an array or a collection
 	Flux<String> fooBarFluxFromValues() {
-		return null;
+		return null ;
 	}
 
 //========================================================================================
