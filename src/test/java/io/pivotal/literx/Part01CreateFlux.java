@@ -100,9 +100,7 @@ public class Part01CreateFlux {
 	}
 
 	// TODO Create a Flux that never terminates
-	Flux<String> neverTerminatedFlux() {
-		return null;
-	}
+	Flux<String> neverTerminatedFlux() { return Flux.never(); }
 
 //========================================================================================
 
