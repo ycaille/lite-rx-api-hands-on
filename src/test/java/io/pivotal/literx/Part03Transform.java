@@ -32,8 +32,14 @@ public class Part03Transform {
 
 	// TODO Capitalize the user username, firstname and lastname
 	Mono<User> capitalizeOne(Mono<User> mono) {
-		return null;
+		User user = mono.get() ;
+		User user2 = new User( user.getUsername().toUpperCase()
+				, user.getFirstname().toUpperCase()
+				, user.getLastname().toUpperCase()
+				);
+		return Mono.just(user2) ;
 	}
+	// TODO Find a more elegant approach !
 
 //========================================================================================
 
