@@ -115,7 +115,7 @@ public class Part06OtherOperations {
 
 	// TODO Convert the input Flux<User> to a Mono<Void> that represents the complete signal of the flux
 	Mono<Void> endOfFlux(Flux<User> flux) {
-		return null;
+		return flux.after() ;
 	}
 
 //========================================================================================
