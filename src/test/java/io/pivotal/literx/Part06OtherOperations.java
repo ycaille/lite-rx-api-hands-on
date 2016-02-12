@@ -95,7 +95,7 @@ public class Part06OtherOperations {
 
 	// TODO return the flux which returns faster the first value
 	Flux<User> useFastestFlux(Flux<User> flux1, Flux<User> flux2) {
-		return null;
+		return Flux.amb(flux1, flux2) ;
 	}
 
 //========================================================================================
