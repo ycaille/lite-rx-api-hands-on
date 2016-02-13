@@ -112,7 +112,9 @@ public class Part08Conversion {
 	}
 
 	// TODO Convert Java 8+ CompletableFuture to Mono thanks to Reactor dedicated class
-	Mono<User> fromCompletableFutureToMono(CompletableFuture<User> future) { return null;}
+	Mono<User> fromCompletableFutureToMono(CompletableFuture<User> future) {
+        return CompletableFutureConverter.from(future);
+    }
 
 
 }
