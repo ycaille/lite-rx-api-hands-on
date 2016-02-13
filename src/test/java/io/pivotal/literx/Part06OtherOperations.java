@@ -163,7 +163,7 @@ public class Part06OtherOperations {
 
 	// TODO Return a Flux<User> containing Saul when an error occurs in the input Flux, else do not change the input Flux.
 	Flux<User> betterCallSaulForBogusFlux(Flux<User> flux) {
-		return null;
+		return flux.onErrorReturn(User.SAUL);
 	}
 
 }
