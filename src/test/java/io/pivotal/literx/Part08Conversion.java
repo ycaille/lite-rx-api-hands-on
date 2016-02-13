@@ -88,7 +88,7 @@ public class Part08Conversion {
 
 	// TODO Convert RxJava Single to Mono thanks to Reactor dedicated class
 	Mono<User> fromSingleToMono(Single<User> single) {
-		return null;
+		return RxJava1SingleConverter.from(single);
 	}
 
 //========================================================================================
