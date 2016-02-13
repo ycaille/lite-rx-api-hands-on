@@ -22,6 +22,7 @@ import io.pivotal.literx.domain.User;
 import io.pivotal.literx.repository.ReactiveRepository;
 import io.pivotal.literx.repository.ReactiveUserRepository;
 import org.junit.Test;
+import reactor.core.converter.CompletableFutureConverter;
 import reactor.core.converter.RxJava1ObservableConverter;
 import reactor.core.converter.RxJava1SingleConverter;
 import reactor.core.publisher.Flux;
@@ -107,13 +108,11 @@ public class Part08Conversion {
 
 	// TODO Convert Mono to Java 8+ CompletableFuture thanks to Reactor dedicated class
 	CompletableFuture<User> fromMonoToCompletableFuture(Mono<User> mono) {
-		return null;
+		return CompletableFutureConverter.fromSingle(mono);
 	}
 
 	// TODO Convert Java 8+ CompletableFuture to Mono thanks to Reactor dedicated class
-	Mono<User> fromCompletableFutureToMono(CompletableFuture<User> future) {
-		return null;
-	}
+	Mono<User> fromCompletableFutureToMono(CompletableFuture<User> future) { return null;}
 
 
 }
