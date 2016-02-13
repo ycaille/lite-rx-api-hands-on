@@ -139,7 +139,7 @@ public class Part06OtherOperations {
 
 	// TODO Return a Mono<User> containing Saul when an error occurs in the input Mono, else do not change the input Mono.
 	Mono<User> betterCallSaulForBogusMono(Mono<User> mono) {
-		return null;
+		return mono.otherwiseJust(User.SAUL) ;
 	}
 
 //========================================================================================
