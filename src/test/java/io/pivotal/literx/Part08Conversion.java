@@ -22,6 +22,7 @@ import io.pivotal.literx.domain.User;
 import io.pivotal.literx.repository.ReactiveRepository;
 import io.pivotal.literx.repository.ReactiveUserRepository;
 import org.junit.Test;
+import reactor.core.converter.RxJava1ObservableConverter;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.core.test.TestSubscriber;
@@ -57,7 +58,7 @@ public class Part08Conversion {
 
 	// TODO Convert Flux to RxJava Observable thanks to Reactor dedicated class
 	Observable<User> fromFluxToObservable(Flux<User> flux) {
-		return null;
+		return RxJava1ObservableConverter.from(flux);
 	}
 
 	// TODO Convert RxJava Observable to Flux thanks to Reactor dedicated class
