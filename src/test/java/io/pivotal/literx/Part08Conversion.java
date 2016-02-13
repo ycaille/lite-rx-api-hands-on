@@ -63,7 +63,7 @@ public class Part08Conversion {
 
 	// TODO Convert RxJava Observable to Flux thanks to Reactor dedicated class
 	Flux<User> fromObservableToFlux(Observable<User> observable) {
-		return null;
+		return RxJava1ObservableConverter.from(observable);
 	}
 
 //========================================================================================
