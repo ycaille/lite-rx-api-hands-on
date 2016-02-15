@@ -10,8 +10,10 @@ import io.pivotal.literx.repository.ReactiveUserRepository;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import org.junit.Test;
+import reactor.core.converter.RxJava1ObservableConverter;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+import reactor.core.publisher.SchedulerGroup;
 import reactor.core.test.TestSubscriber;
 
 /**
@@ -38,8 +40,8 @@ public class Part09BlockingToReactive {
 
 	// TODO Create a Flux for reading all users from the blocking repository, and run it with a scheduler factory suitable for slow blocking request methods
 	Flux<User> blockingRepositoryToFlux(BlockingRepository<User> repository) {
-		return null;
-	}
+        return Flux.fromIterable(repository.findAll()).publishOn(SchedulerGroup.io()) ;
+    }
 
 //========================================================================================
 
@@ -64,7 +66,9 @@ public class Part09BlockingToReactive {
 
 	// TODO Insert values in the blocking repository using an scheduler factory suitable for blocking but fast onNext methods
 	Mono<Void> fluxToBlockingRepository(Flux<User> flux, BlockingRepository<User> repository) {
-		return null;
+        return flux.dispatchOn(SchedulerGroup.async())
+                .doOnNext(repository::save)
+                .after() ;
 	}
 
 //========================================================================================
@@ -87,7 +91,7 @@ public class Part09BlockingToReactive {
 
 	// TODO Return a valid Mono of user for null input and non null input user (hint: Reactive Streams does not accept null values)
 	Mono<User> nullAwareUserToMono(User user) {
-		return null;
+		return user == null ? Mono.empty() : Mono.just(user) ;
 	}
 
 }
