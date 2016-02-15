@@ -126,12 +126,10 @@ public class Part05Request {
 
 	// TODO Return a Flux with skyler, jesse, walter and saul that prints "Starring:" on subscribe, "firstname lastname" for all values and "The end!" on complete
 	Flux<User> fluxWithDoOnPrintln() {
-        Flux<User> flux = repository.findAll() ;
-		flux.doOnSubscribe(subscription ->  System.out.println("Starring:")) ;
-		flux.doOnNext(user -> System.out.println( user.getFirstname() + " " + user.getLastname() )) ;
-        flux.doOnComplete(() -> System.out.println( "The end!" ) );
-        return flux;
-		// FIXME The test passed but nothing gets printed !!!
+        return repository.findAll()
+							.doOnSubscribe(subscription ->  System.out.println("Starring:"))
+							.doOnNext(user -> System.out.println( user.getFirstname() + " " + user.getLastname() ))
+							.doOnComplete(() -> System.out.println( "The end!" ) );
 	}
 
 }
