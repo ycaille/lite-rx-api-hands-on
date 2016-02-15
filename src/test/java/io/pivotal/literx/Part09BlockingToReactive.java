@@ -66,7 +66,9 @@ public class Part09BlockingToReactive {
 
 	// TODO Insert values in the blocking repository using an scheduler factory suitable for blocking but fast onNext methods
 	Mono<Void> fluxToBlockingRepository(Flux<User> flux, BlockingRepository<User> repository) {
-        return null;
+        return flux.dispatchOn(SchedulerGroup.async())
+                .doOnNext(repository::save)
+                .after() ;
 	}
 
 //========================================================================================
