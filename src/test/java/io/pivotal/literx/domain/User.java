@@ -1,5 +1,7 @@
 package io.pivotal.literx.domain;
 
+import reactor.fn.tuple.Tuple3;
+
 public class User {
 
 	public static final User SKYLER = new User("swhite", "Skyler", "White");
@@ -18,6 +20,8 @@ public class User {
 		this.firstname = firstname;
 		this.lastname = lastname;
 	}
+
+
 
 	public String getUsername() {
 		return username;
